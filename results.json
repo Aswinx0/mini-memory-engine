@@ -1,0 +1,330 @@
+{
+  "n": 20,
+  "totals": {
+    "no_memory": 0,
+    "plain_rag": 18,
+    "memory_engine": 17
+  },
+  "rows": [
+    {
+      "scenario": "billing",
+      "question": "Who owns the billing migration?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "Rahul owns the billing migration.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "Rahul owns the billing migration.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "billing",
+      "question": "When is the billing migration deadline?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "The billing migration deadline is November 10.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "The billing migration deadline is Nov 10, 2026.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "billing",
+      "question": "Which payment provider are we using?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "Razorpay.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "The memory contains two different payment providers: Stripe (as of 2026-10-01) and Razorpay (as of 2026-10-15). Since the latest entry mentions Razorpay, the current payment provider is Razorpay.",
+        "correct": false
+      }
+    },
+    {
+      "scenario": "meera",
+      "question": "When does Meera prefer to have meetings?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "Meera prefers to have meetings in the afternoon, after 2 PM.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "Meera prefers afternoon meetings after 2 PM.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "meera",
+      "question": "Who is Meera's team lead?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "I don't know. The memory does not mention Meera.",
+        "correct": false
+      },
+      "memory_engine": {
+        "answer": "Sana.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "meera",
+      "question": "Which tool does Meera use for team communication?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "Microsoft Teams.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "Meera uses Microsoft Teams for team communication.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "mobile_app",
+      "question": "When is the mobile app launch?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "The mobile app launch is planned for Jan 15.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "The mobile app launch date is January 15.",
+        "correct": false
+      }
+    },
+    {
+      "scenario": "mobile_app",
+      "question": "What is the current status of the mobile app project?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "The project is currently in development, and the mobile app launch has been delayed to Jan 15.",
+        "correct": false
+      },
+      "memory_engine": {
+        "answer": "The mobile app project is in QA testing.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "mobile_app",
+      "question": "What language is the backend written in?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "The backend is written in Go.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "The backend language is Go.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "mobile_app",
+      "question": "Who is the lead designer?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "Tara.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "Tara is the lead designer.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "ishan",
+      "question": "Which city is Ishan based in?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "Ishan is based in Pune.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "Pune.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "ishan",
+      "question": "Who is Ishan's manager?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "Neha.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "Neha.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "ishan",
+      "question": "Which day is the weekly team sync?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "The weekly team sync is on Thursday.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "Thursday.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "ishan",
+      "question": "What laptop does Ishan have?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "Ishan has a MacBook Pro.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "Ishan has a MacBook Pro.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "analytics_team",
+      "question": "Which database does the analytics team use for reporting?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "The analytics team uses ClickHouse for reporting.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "The analytics team uses PostgreSQL for reporting.",
+        "correct": false
+      }
+    },
+    {
+      "scenario": "analytics_team",
+      "question": "Who is the analytics team lead?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "Omar is the analytics team lead.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "Omar is the analytics team lead.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "analytics_team",
+      "question": "What time is the analytics team standup?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "The analytics team standup is at 9:30 AM.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "The analytics team standup is at 9:30 AM.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "kiran",
+      "question": "Which office does Kiran work from?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "Kiran works from the Hyderabad office.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "Kiran works from the Hyderabad office.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "kiran",
+      "question": "What laptop does Kiran use?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "Kiran uses a MacBook Air.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "Kiran uses a MacBook Air.",
+        "correct": true
+      }
+    },
+    {
+      "scenario": "kiran",
+      "question": "Who does Kiran report to?",
+      "no_memory": {
+        "answer": "I don't know.",
+        "correct": false
+      },
+      "plain_rag": {
+        "answer": "Kiran reports to Mohan.",
+        "correct": true
+      },
+      "memory_engine": {
+        "answer": "Kiran reports to Mohan.",
+        "correct": true
+      }
+    }
+  ]
+}
