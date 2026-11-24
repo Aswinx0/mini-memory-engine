@@ -101,15 +101,17 @@ python -m pytest -q
 
 Scoring is strict text matching (`any_of` / `none_of` lists), so some correct answers phrased unexpectedly can be marked wrong.
 
-Last complete run (20 questions, 6 scenarios):
+Latest run, after all four prompt/judge fixes (5 of 6 scenarios, 17 questions; the run stopped at the 6th scenario when the Cohere trial quota ran out, so the final 3 questions were not run. The terminal log is saved in `eval_log_2026-11-23.txt`):
 
 | Method | Correct |
 |---|---|
-| No memory | 0/20 (0%) |
-| Plain RAG | 18/20 (90%) |
-| Memory engine | 17/20 (85%) |
+| No memory | 0/17 (0%) |
+| Plain RAG | 15/17 (88%) |
+| Memory engine | 17/17 (100%) |
 
-**Across all runs, the engine scored roughly 80-93% and plain RAG 79-90% on benchmarks of 14-20 questions. There is no reliable accuracy advantage on this benchmark**, and results varied by a question or two between runs because extraction and judging are LLM calls. The benchmark is small, synthetic and written by me, and each scenario has only 2-3 sessions, so a top-3 retriever sees almost the whole history. Longer histories with many updates to the same fact are the next experiment.
+Earlier complete runs, before the final fixes (14-20 questions): the engine scored roughly 80-93% and plain RAG 79-90%, with results varying by a question or two between runs.
+
+**How to read this:** the latest run is the engine's best, and it is encouraging, but it is a single run on 17 questions that I wrote and tuned against. The earlier runs showed no reliable advantage over plain RAG, and LLM extraction varies between runs. The 6th scenario (`kiran`) was written after the first fixes and is the closest thing to a held-out test, and it has not yet been run on the final code. Each scenario has only 2-3 sessions, so a top-3 retriever sees almost the whole history. Longer histories with many updates to the same fact are the next experiment.
 
 ### What the eval found
 
@@ -118,7 +120,7 @@ Inspecting the stored facts after each failure showed the problems were in extra
 1. **Change stored as a "reason"**: "switching from Stripe to Razorpay because of lower fees" produced a *reason* fact but no new-provider fact, so Stripe was never replaced. Fixed by tightening the extraction prompt.
 2. **Dropped entity names**: facts like "The team communication tool is Teams" had no person in them, so labels did not match and nothing was superseded. Fixed by requiring every fact to name its subject.
 3. **History overriding current facts**: "Priya was the previous owner" superseded "Rahul is the owner". Fixed by telling the extractor to store only current state and the judge never to let a past-value fact replace a current one.
-4. **Judge lacked context**: "Stripe" and "Razorpay" can both be true in isolation. The proof of replacement was in the original sentence, so the judge now receives the source message. Billing and Meera questions passed in a partial run with this change, before the API quota ran out; a full re-run is pending.
+4. **Judge lacked context**: "Stripe" and "Razorpay" can both be true in isolation. The proof of replacement was in the original sentence, so the judge now receives the source message. With this change, all billing, Meera, mobile app, Ishan and analytics-team questions passed in the latest run (17/17).
 5. **Ambiguous scenario**: one test scenario never named the team in later sessions, so no method could link them. It was rewritten, and this is disclosed here.
 
 The extraction prompt was tuned four times after seeing failures, so the scores above are not a clean held-out measurement.

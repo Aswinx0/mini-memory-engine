@@ -58,7 +58,7 @@ class MemoryEngine:
         extracted = [f for f in self.llm.extract_facts(text) if f.get("fact")]
         if not extracted:
             return result
-
+#   add() hands your text to the LLM and gets back a list of facts.
         vectors = [
             _normalize(v) for v in self.llm.embed_documents([f["fact"] for f in extracted])
         ]

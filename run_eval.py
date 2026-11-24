@@ -21,7 +21,19 @@ def has_word(text: str, word: str) -> bool:
     return re.search(r"\b" + re.escape(word) + r"\b", text, re.I) is not None
 
 
+MONTHS = {"january": "Jan", "february": "Feb", "march": "Mar", "april": "Apr", "june": "Jun",
+          "july": "Jul", "august": "Aug", "september": "Sep", "october": "Oct",
+          "november": "Nov", "december": "Dec"}
+
+
+def normalize(text: str) -> str:
+    for full, short in MONTHS.items():
+        text = re.sub(r"\b" + full + r"\b", short, text, flags=re.I)
+    return text
+
+
 def is_correct(answer: str, any_of: list[str], none_of: list[str]) -> bool:
+    answer = normalize(answer)
     right = any(has_word(answer, w) for w in any_of)
     stale = any(has_word(answer, w) for w in none_of)
     return right and not stale

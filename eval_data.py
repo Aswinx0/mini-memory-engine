@@ -1,5 +1,12 @@
 """Evaluation dataset: multi-session conversations where facts change over time."""
+#with no memory
+#with plain rag
+#with this engine
 
+***
+python cli.py add --user aswin "My favourite language is Python. I live in Bhopal. My internship ends in March."
+
+***
 SCENARIOS = [
     {
         "name": "billing",
